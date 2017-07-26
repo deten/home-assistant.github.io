@@ -35,6 +35,17 @@ Configuration variables:
 - **timeout** (*Optional*): The time-out in seconds for the communication with the TV. Defaults to 0 (no timeout).
 - **mac** (*Optional*): The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan.
 
+`Samsungtv` component requires websockets.  HA is installed in a virtual environment so all python packages are independent.
+you have to activate the virtual environment :
+
+$ sudo su -s /bin/bash homeassistant (or substitute "hass" for "homeassistant"  or whatever your virtual environment is called)
+$ cd /srv/homeassistant
+$ python3 -m venv .
+$ source /srv/homeassistant/bin/activate
+
+then install websockets
+$pip3 install websocket-client
+
 Currently known supported models:
 
 - C7700
@@ -55,6 +66,7 @@ Currently known supported models:
 - K6500AF (port must be set to 8001)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - K5600AK (partially supported, turn on works but state is not updated)
+- KS8000 (port must be set to 8001)
 
 Currently tested but not working models:
 
